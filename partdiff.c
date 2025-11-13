@@ -64,7 +64,7 @@ struct calculation_results
 {
 	uint64_t m;
 	uint64_t stat_iteration; /* number of current iteration */
-	double   stat_accuracy;  /* actual stat_accuracy of all slaves in iteration */
+	double   stat_accuracy;  /* actual accuracy of all slaves in iteration */
 };
 
 struct options
@@ -222,7 +222,7 @@ allocateMemory(size_t size)
 
 	if ((p = malloc(size)) == NULL)
 	{
-		printf("Speicherprobleme! (%" PRIu64 " Bytes angefordert)\n", size);
+		printf("Memory error! (%" PRIu64 " Bytes requested)\n", size);
 		exit(1);
 	}
 
@@ -397,9 +397,9 @@ displayStatistics(struct calculation_arguments const* arguments, struct calculat
 	int    N    = arguments->N;
 	double time = (comp_time.tv_sec - start_time.tv_sec) + (comp_time.tv_usec - start_time.tv_usec) * 1e-6;
 
-	printf("Berechnungszeit:    %f s\n", time);
-	printf("Speicherbedarf:     %f MiB\n", (N + 1) * (N + 1) * sizeof(double) * arguments->num_matrices / 1024.0 / 1024.0);
-	printf("Berechnungsmethode: ");
+	printf("Calculation time:   %f s\n", time);
+	printf("Memory usage:       %f MiB\n", (N + 1) * (N + 1) * sizeof(double) * arguments->num_matrices / 1024.0 / 1024.0);
+	printf("Calculation method: ");
 
 	if (options->method == METH_GAUSS_SEIDEL)
 	{
@@ -412,7 +412,7 @@ displayStatistics(struct calculation_arguments const* arguments, struct calculat
 
 	printf("\n");
 	printf("Interlines:         %" PRIu64 "\n", options->interlines);
-	printf("Stoerfunktion:      ");
+	printf("Inference function: ");
 
 	if (options->inf_func == FUNC_F0)
 	{
@@ -424,32 +424,32 @@ displayStatistics(struct calculation_arguments const* arguments, struct calculat
 	}
 
 	printf("\n");
-	printf("Terminierung:       ");
+	printf("Termination:        ");
 
 	if (options->termination == TERM_ACC)
 	{
-		printf("Hinreichende Genaugkeit");
+		printf("Required accuracy");
 	}
 	else if (options->termination == TERM_ITER)
 	{
-		printf("Anzahl der Iterationen");
+		printf("Number of iterations");
 	}
 
 	printf("\n");
-	printf("Anzahl Iterationen: %" PRIu64 "\n", results->stat_iteration);
-	printf("Norm des Fehlers:   %e\n", results->stat_accuracy);
+	printf("Number iterations:  %" PRIu64 "\n", results->stat_iteration);
+	printf("Residuum:           %e\n", results->stat_accuracy);
 	printf("\n");
 }
 
 /****************************************************************************/
-/** Beschreibung der Funktion displayMatrix:                               **/
+/** Explanation of the displayMatrix function:                             **/
 /**                                                                        **/
-/** Die Funktion displayMatrix gibt eine Matrix                            **/
-/** in einer "ubersichtlichen Art und Weise auf die Standardausgabe aus.   **/
+/** The function displayMatrix outputs a Matrix                            **/
+/** in a humanly readable way.                                             **/
 /**                                                                        **/
-/** Die "Ubersichtlichkeit wird erreicht, indem nur ein Teil der Matrix    **/
-/** ausgegeben wird. Aus der Matrix werden die Randzeilen/-spalten sowie   **/
-/** sieben Zwischenzeilen ausgegeben.                                      **/
+/** This is achieved by only printing parts of the matrix.                 **/
+/** From the matrix the first and last lines/columns and seven in between  **/
+/** rows/cols are printed out.                                             **/
 /****************************************************************************/
 static void
 displayMatrix(struct calculation_arguments* arguments, struct calculation_results* results, struct options* options)

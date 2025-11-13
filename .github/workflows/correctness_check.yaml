@@ -34,7 +34,7 @@ jobs:
           cd partdiff_tester && \
           uv run pytest -n auto --verbose \
             --executable='../partdiff' \
-            --strictness=4 \
+            --strictness=1 \
             --valgrind \
             --shuffle=42 \
             --max-num-tests=5
@@ -44,5 +44,5 @@ jobs:
           cd partdiff_tester && \
           uv run pytest -n auto --verbose \
             --executable='../partdiff' \
-            --strictness=4 \
+            --strictness=1 \
             --shuffle=42

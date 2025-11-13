@@ -100,7 +100,7 @@ usage(char* name)
 	printf("  - func:      interference function (1 .. 2)\n");
 	printf("                 %1d: f(x,y) = 0\n", FUNC_F0);
 	printf("                 %1d: f(x,y) = 2 * pi^2 * sin(pi * x) * sin(pi * y)\n", FUNC_FPISIN);
-	printf("  - term:      termination condition ( 1.. 2)\n");
+	printf("  - term:      termination condition (1 .. 2)\n");
 	printf("                 %1d: sufficient accuracy\n", TERM_ACC);
 	printf("                 %1d: number of iterations\n", TERM_ITER);
 	printf("  - acc/iter:  depending on term:\n");

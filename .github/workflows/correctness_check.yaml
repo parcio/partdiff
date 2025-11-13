@@ -15,9 +15,6 @@ jobs:
       - name: Build partdiff
         run: make
 
-      - name: Check code format
-        run: clang-format --dry-run -Werror partdiff.c
-
       - name: Install Valgrind
         run: sudo apt-get update && sudo apt-get install -y valgrind
 

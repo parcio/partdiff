@@ -21,10 +21,10 @@ Usage: ./partdiff [num] [method] [lines] [func] [term] [acc/iter]
                  2: Jacobi
   - lines:     number of interlines (0 .. 100000)
                  matrixsize = (interlines * 8) + 9
-  - func:      interference function (1 .. 2)
+  - func:      perturbation function (1 .. 2)
                  1: f(x,y) = 0
                  2: f(x,y) = 2 * pi^2 * sin(pi * x) * sin(pi * y)
-  - term:      termination condition ( 1.. 2)
+  - term:      termination condition (1 .. 2)
                  1: sufficient accuracy
                  2: number of iterations
   - acc/iter:  depending on term:
@@ -34,14 +34,14 @@ Usage: ./partdiff [num] [method] [lines] [func] [term] [acc/iter]
 Example: ./partdiff 1 2 100 1 2 100
 
 $ ./partdiff 1 2 100 1 2 100
-Calculation time:   0.035731 s
-Memory usage:       9.986588 MiB
-Calculation method: Jacobi
-Interlines:         100
-Inference function: f(x,y) = 0
-Termination:        Number of iterations
-Number iterations:  100
-Residuum:           3.544251e-03
+Calculation time:       0.082096 s
+Memory usage:           9.986588 MiB
+Calculation method:     Jacobi
+Interlines:             100
+Perturbation function:  f(x,y) = 0
+Termination:            Number of iterations
+Number of iterations:   100
+Residuum:               3.544251e-03
 
 Matrix:
  1.0000 0.8750 0.7500 0.6250 0.5000 0.3750 0.2500 0.1250 0.0000

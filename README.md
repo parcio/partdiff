@@ -9,7 +9,7 @@ partdiff was originally created by Thomas Ludwig, Thomas A. Zochler, and Andreas
 ## Usage
 
 ```shell
-$ git clone
+$ git clone https://github.com/parcio/partdiff.git
 $ cd partdiff
 $ make
 $ ./partdiff

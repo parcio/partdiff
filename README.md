@@ -58,3 +58,14 @@ Matrix:
 ## Regression testing
 
 We use [partdiff_tester](https://github.com/parcio/partdiff_tester) to perform automatic regression tests.
+
+## Other Implementations
+
+Here is a list of some partdiff implementations in other languages that we're aware of:
+
+| Implementation | Programming Language |
+|---|---|
+| [`mblesel/rust_partdiff`](https://github.com/mblesel/rust_partdiff) | Rust |
+| [`felsenhower/partdiffpp`](https://github.com/felsenhower/partdiffpp) | C++ |
+| [`felsenhower/partdiff-py`](https://github.com/felsenhower/partdiff-py) | Python |
+
